@@ -28,18 +28,24 @@
 
 ## 📷 Screenshots
 
-### Style "normal"
-<img width="369" height="167" alt="normal" src="https://github.com/user-attachments/assets/8a28cc21-acd9-422d-9398-bc95d169c872" />
-### Style "music"
-<img width="369" height="167" alt="music" src="https://github.com/user-attachments/assets/9f87bd14-a10e-400e-9f96-ab5040069654" />
-### Style "mama-lova"
-<img width="369" height="167" alt="mama-lova" src="https://github.com/user-attachments/assets/a052ee0a-c979-42de-b837-0d43e42bbcd1" />
-### Style "fire"
-<img width="369" height="167" alt="fire" src="https://github.com/user-attachments/assets/205a6f00-911a-4498-b834-4c83245e6b81" />
-### Style "dots"
-<img width="369" height="167" alt="dots" src="https://github.com/user-attachments/assets/708eae07-d0a7-4570-b1d8-a3e22afde5ef" />
-### Style "cyberpunk"
-<img width="369" height="167" alt="cyberpunk" src="https://github.com/user-attachments/assets/a76237ac-cc4b-4758-8e00-640c0e82e7ff" />
+
+<div align="center">
+	
+| ![Style "normal"](https://github.com/user-attachments/assets/8a28cc21-acd9-422d-9398-bc95d169c872) | ![Style "music"](https://github.com/user-attachments/assets/9f87bd14-a10e-400e-9f96-ab5040069654) |
+|:--:|:--:|
+| **Style "normal"** | **Style "music"** |
+
+| ![Style "mama-lova"](https://github.com/user-attachments/assets/a052ee0a-c979-42de-b837-0d43e42bbcd1) | ![Style "fire"](https://github.com/user-attachments/assets/205a6f00-911a-4498-b834-4c83245e6b81) |
+|:--:|:--:|
+| **Style "mama-lova"** | **Style "fire"** |
+
+| ![Style "dots"](https://github.com/user-attachments/assets/708eae07-d0a7-4570-b1d8-a3e22afde5ef) | ![Style "cyberpunk"](https://github.com/user-attachments/assets/a76237ac-cc4b-4758-8e00-640c0e82e7ff) |
+|:--:|:--:|
+| **Style "dots"** | **Style "cyberpunk"** |
+
+</div>
+
+
 
 ## 📦 Installation
 
