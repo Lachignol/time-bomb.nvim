@@ -114,7 +114,7 @@ require("time-bomb").setup({
   },
   
   pomodoro_cycles = {
-		{ title = "Work",        time = "25", style = "mama-lova" },
+		{ title = "Work",        time = "25", style = "mama-lova" }, -- Time in minute (must be upper than 1 min and less than 1440 min (1 day)
 		{ title = "Short-Break", time = "5",  style = "cyberpunk" },
 		{ title = "Work",        time = "25", style = "fire" },
 		{ title = "Short-Break", time = "5",  style = "dots" },
