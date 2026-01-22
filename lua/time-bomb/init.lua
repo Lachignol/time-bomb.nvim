@@ -263,6 +263,10 @@ function M.update_window_position(win)
 end
 
 function M.check_if_buf_is_valid(buf)
+	if not buf or type(buf) ~= "number" then
+		M.reinitialize_timer_state()
+		return false
+	end
 	if not vim.api.nvim_buf_is_valid(buf) then
 		M.reinitialize_timer_state()
 		return false
