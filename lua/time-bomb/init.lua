@@ -50,9 +50,9 @@ function M.run_timer(duration, mode)
 		end
 		M.timer.buf, M.timer.opts = utils.set_buffer_and_options()
 		local color = utils.set_color(config.options.timer_color)
-		local start = vim.uv.now()
 		M.timer.remaining = duration * 60
 		M.timer.window = utils.edit_and_open_win(M.timer.buf, M.timer.opts, color)
+		local start = vim.uv.now()
 		M.timer.instance:start(0, 1000, vim.schedule_wrap(function()
 			local now = vim.uv.now()
 			local spending_time = (now - start) / 1000
@@ -72,13 +72,13 @@ function M.run_timer(duration, mode)
 		M.timer.cycle = (M.timer.cycle or 0) + 1
 		if (M.timer.cycle > #config.options.pomodoro_cycles) then M.timer.cycle = 1 end
 		local current_cycle = config.options.pomodoro_cycles[M.timer.cycle]
-		local start = vim.uv.now()
 		local total_duration_of_current_cycle = tonumber(current_cycle.time)
 		M.timer.remaining = total_duration_of_current_cycle * 60
 		M.timer.buf, M.timer.opts = utils.set_buffer_and_options(current_cycle)
 		local color = utils.set_color(config.options.timer_color)
 		local cycle_style = current_cycle.style
 		M.timer.window = utils.edit_and_open_win(M.timer.buf, M.timer.opts, color)
+		local start = vim.uv.now()
 		M.timer.instance:start(0, 1000, vim.schedule_wrap(function()
 			local now = vim.uv.now()
 			local spending_time = (now - start) / 1000
@@ -131,9 +131,9 @@ function M.restart_timer(duration)
 		end))
 	else
 		local current_cycle = config.options.pomodoro_cycles[M.timer.cycle]
-		local start = vim.uv.now()
 		local total_duration_of_current_cycle = config.options.pomodoro_cycles[M.timer.cycle].time
 		local cycle_style = current_cycle.style
+		local start = vim.uv.now()
 		M.timer.instance:start(0, 1000, vim.schedule_wrap(function()
 			local now = vim.uv.now()
 			local spending_time = (now - start) / 1000
