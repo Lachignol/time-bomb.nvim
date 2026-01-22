@@ -125,7 +125,6 @@ require("time-bomb").setup({
   
   timer_color = "lime",           -- lime, blue, black, gray, silver, white, fuchsia
   enable_notification = false,    -- System notifications
-  enable_confirmation = false,    -- Confirmation before next cycle
 })
 ```
 

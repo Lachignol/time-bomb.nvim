@@ -86,15 +86,10 @@ Available options:
   Show nvim-notify on timeout
   Default: `false`
 
-> **enable_confirmation** (boolean) 
-  Ask confirmation before next cycle
-  Default: `false`
-
 Full example: >lua
     require("time-bomb").setup({
       enable_default_keymaps = true,
       enable_notification = true,
-      enable_confirmation = true,
       timer_color = "fuchsia",
       keymaps = {
         pomodoro_start = "<leader>p",

@@ -96,18 +96,11 @@ function M.run_timer(duration, mode)
 
 			if M.timer.remaining <= 0 then
 				if config.options.enable_notification then utils.notify("Timeout") end
-				if M.timer.mode == "POMODORO" and config.options.enable_confirmation then
-					if not M.confirmation_for_launch_next_cycle() then
-						M.reinitialize_timer_state()
-						return
-					end
-				end
-				M.timer.state = "ENDING"
 				M.prepare_next_cycle()
+				M.timer.state = "ENDING"
 				vim.defer_fn(function()
 					if M.timer.state == "ENDING" then
 						M.run_timer("nimportequoi", "POMODORO")
-						M.timer.state = "RUNNING"
 					end
 				end, 100)
 			end
@@ -157,14 +150,8 @@ function M.restart_timer(duration)
 
 			if M.timer.remaining <= 0 then
 				if config.options.enable_notification then utils.notify("Timeout") end
-				if M.timer.mode == "POMODORO" and config.options.enable_confirmation then
-					if not M.confirmation_for_launch_next_cycle() then
-						M.reinitialize_timer_state()
-						return
-					end
-				end
-				M.timer.state = "ENDING"
 				M.prepare_next_cycle()
+				M.timer.state = "ENDING"
 				vim.defer_fn(function()
 					if M.timer.state == "ENDING" then
 						M.run_timer("nimportequoi", "POMODORO")
@@ -262,15 +249,6 @@ function M.clear_timer()
 		M.timer.instance:stop()
 		M.timer.instance:close()
 		M.timer.instance = nil
-	end
-end
-
-function M.confirmation_for_launch_next_cycle()
-	local response = vim.fn.input("Continue to next cycle? (y/n):")
-	if response:lower() == "y" then
-		return true
-	else
-		return false
 	end
 end
 

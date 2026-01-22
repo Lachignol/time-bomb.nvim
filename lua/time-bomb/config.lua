@@ -29,10 +29,6 @@ m.defaults = {
 	},
 	-- default color for timer
 	timer_color = "lime",
-	-- enable notification at the end of timer
-	enable_notification = false,
-	-- enable confirmation at the end of timer for go to next cycle or not
-	enable_confirmation = false,
 }
 
 -- style valide
@@ -68,8 +64,7 @@ local function validate_general_type(config)
 		type(config.keymaps) == "table" and
 		type(config.pomodoro_cycles) == "table" and
 		type(config.timer_color) == "string" and
-		type(config.enable_notification) == "boolean" and
-		type(config.enable_confirmation) == "boolean")
+		type(config.enable_notification) == "boolean")
 end
 
 local function validate_type_keymaps(config)
@@ -105,8 +100,7 @@ function m.setup(user_options)
 			keymaps must be table \
 			pomodoro_cycles must be table \
 			timer_color must be string \
-			enable_notification must be boolean \
-			enable_confirmation must be boolean")
+			enable_notification must be boolean")
 		utils.notify("1 error at least you can see more with :checkhealth time-bomb", 3)
 		m.options = m.defaults
 	end
