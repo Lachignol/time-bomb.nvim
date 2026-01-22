@@ -3,7 +3,6 @@ local m = {}
 local utils = require("time-bomb.utils")
 
 m.defaults = {
-	-- by default it's at true
 	-- set at false if you want disable default_keymap
 	enable_default_keymaps = true,
 	-- custom keymaps don't desactivate enable_default_keymaps with you want overload your keymaps
@@ -17,14 +16,14 @@ m.defaults = {
 	},
 	-- default cycles but you can add yours
 	-- the time is in number of minute
-	-- you have only two style for the moment only "normal" by default or "mama-lova"
+	-- you have only 6 style for the moment
 	pomodoro_cycles = {
-		{ title = "work", time = "25", style = "normal" },
-		{ title = "short-break", time = "5", style = "mama-lova" },
-		{ title = "work", time = "25", style = "normal" },
-		{ title = "short-break", time = "5", style = "mama-lova" },
-		{ title = "work", time = "25", style = "normal" },
-		{ title = "long-break", time = "15", style = "mama-lova" },
+		{ title = "Work",        time = "25", style = "mama-lova" },
+		{ title = "Short-Break", time = "5",  style = "cyberpunk" },
+		{ title = "Work",        time = "25", style = "fire" },
+		{ title = "Short-Break", time = "5",  style = "dots" },
+		{ title = "Work",        time = "25", style = "music" },
+		{ title = "Long-Break",  time = "1",  style = "normal" },
 	},
 	-- default color for timer
 	timer_color = "lime",
@@ -129,7 +128,8 @@ function m.setup(user_options)
 		if not validate_type_of_one_cycle_of_pomodoro(m.options.pomodoro_cycles[i]) then
 			table.insert(
 				m.health.errors,
-				"[error] time-bomb config at pomodoro_cycles number: " .. i .. " All value must be string"
+				"[error] time-bomb config at pomodoro_cycles number: " ..
+				i .. " All value must be string"
 			)
 
 			utils.notify("1 error at least you can see more with :checkhealth time-bomb", 3)
@@ -140,10 +140,10 @@ function m.setup(user_options)
 			table.insert(
 				m.health.warnings,
 				"[WARNING] time-bomb config at pomodoro_cycles number: "
-					.. i
-					.. " "
-					.. m.options.pomodoro_cycles[i].title
-					.. " title must be less than 10 char it will be truncate "
+				.. i
+				.. " "
+				.. m.options.pomodoro_cycles[i].title
+				.. " title must be less than 10 char it will be truncate "
 			)
 		end
 
@@ -153,10 +153,10 @@ function m.setup(user_options)
 			table.insert(
 				m.health.errors,
 				"[error] time-bomb config at pomodoro_cycles number: "
-					.. i
-					.. " "
-					.. m.options.pomodoro_cycles[i].time
-					.. " must be less than 24h"
+				.. i
+				.. " "
+				.. m.options.pomodoro_cycles[i].time
+				.. " must be less than 24h"
 			)
 			utils.notify("1 error you can see more with :checkhealth time-bomb", 3)
 			m.options.pomodoro_cycles[i].time = "1439"
@@ -166,10 +166,10 @@ function m.setup(user_options)
 			table.insert(
 				m.health.errors,
 				"[error] time-bomb config at pomodoro_cycles number: "
-					.. i
-					.. " "
-					.. m.options.pomodoro_cycles[i].time
-					.. " must be equal or upper than 1 min "
+				.. i
+				.. " "
+				.. m.options.pomodoro_cycles[i].time
+				.. " must be equal or upper than 1 min "
 			)
 			utils.notify("1 error you can see more with :checkhealth time-bomb", 3)
 			m.options.pomodoro_cycles[i].time = "1"
@@ -179,10 +179,10 @@ function m.setup(user_options)
 			table.insert(
 				m.health.errors,
 				"[error] time-bomb config at pomodoro_cycles number: "
-					.. i
-					.. " "
-					.. m.options.pomodoro_cycles[i].style
-					.. " it's not valid entry'"
+				.. i
+				.. " "
+				.. m.options.pomodoro_cycles[i].style
+				.. " it's not valid entry'"
 			)
 			utils.notify("1 error you can see more with :checkhealth time-bomb", 3)
 			m.options.pomodoro_cycles[i].style = "normal"
