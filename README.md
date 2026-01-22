@@ -98,8 +98,7 @@ require("time-bomb").setup({
 })
 ```
 
-### Full configuration
-
+### Full configuration (DEFAULT)
 
 ```lua
 require("time-bomb").setup({
@@ -115,16 +114,16 @@ require("time-bomb").setup({
   },
   
   pomodoro_cycles = {
-    { title = "Work",       time = "25", style = "normal" },
-    { title = "Short Break",time = "5",  style = "mama-lova" },
-    { title = "Work",       time = "25", style = "normal" },
-    { title = "Short Break",time = "5",  style = "mama-lova" },
-    { title = "Work",       time = "25", style = "normal" },
-    { title = "Long Break", time = "15", style = "normal" },
-  },
+		{ title = "Work",        time = "25", style = "mama-lova" },
+		{ title = "Short-Break", time = "5",  style = "cyberpunk" },
+		{ title = "Work",        time = "25", style = "fire" },
+		{ title = "Short-Break", time = "5",  style = "dots" },
+		{ title = "Work",        time = "25", style = "music" },
+		{ title = "Long-Break",  time = "1",  style = "normal" },
+	},
   
   timer_color = "lime",           -- lime, blue, black, gray, silver, white, fuchsia
-  enable_notification = false,    -- System notifications
+  enable_notification = true,    -- System notifications
 })
 ```
 
