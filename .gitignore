@@ -1,0 +1,13 @@
+# Fichiers Neovim
+*.swp
+*.swo
+*~
+
+# Données de test
+test/
+.test/
+
+# OS
+.DS_Store
+Thumbs.db
+

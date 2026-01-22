@@ -1,0 +1,66 @@
+----------------------------------------------------------------------------------BOILERPLATE--------------------------------------------------------------------------------------------
+
+-- local M = {}
+--
+-- -- Chemin du fichier de stockage
+-- local storage_path = vim.fn.stdpath("data") .. "/test-plugin_data.json"
+--
+--
+--
+-- -- Sauvegarder des données
+-- function M.save(data)
+-- 	local file = io.open(storage_path, "w")
+--
+-- 	if file then
+-- 		local json = vim.json.encode(data)
+--
+-- 		file:write(json)
+--
+-- 		file:close()
+--
+-- 		return true
+-- 	end
+--
+-- 	return false
+-- end
+--
+-- -- Charger des données
+-- function M.load()
+-- 	local file = io.open(storage_path, "r")
+--
+-- 	if file then
+-- 		local content = file:read("*all")
+--
+-- 		file:close()
+--
+-- 		local ok, data = pcall(vim.json.decode, content)
+--
+-- 		if ok then
+-- 			return data
+-- 		end
+-- 	end
+--
+-- 	return nil
+-- end
+--
+-- -- Sauvegarder un compteur de salutations
+-- function M.increment_counter()
+-- 	local data = M.load() or { count = 0 }
+--
+-- 	data.count = data.count + 1
+--
+-- 	data.last_greeting = os.date("%Y-%m-%d %H:%M:%S")
+--
+-- 	M.save(data)
+--
+-- 	return data.count
+-- end
+--
+-- -- Obtenir les statistiques
+-- function M.get_stats()
+-- 	return M.load() or { count = 0, last_greeting = "Jamais" }
+-- end
+--
+-- return M
+
+------------------------------------------------------------------------------------------------------------------------------------------------

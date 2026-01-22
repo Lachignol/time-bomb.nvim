@@ -209,4 +209,3 @@ MIT License - see [LICENSE](License) file.
 ***
 
 **Made with ❤️ for Neovim developers**
-# time-bomb.nvim

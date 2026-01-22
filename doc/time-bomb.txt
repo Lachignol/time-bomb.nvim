@@ -1,0 +1,252 @@
+*time-bomb.nvim*       						Nom du plugin	
+==============================================================================
+
+CONTENTS 						*time-bomb-contents*
+
+    1. Introduction ................ *time-bomb-introduction*
+    2. Installation ................ *time-bomb-installation*
+    3. Configuration ............... *time-bomb-configuration*
+    4. Commands .................... *time-bomb-commands*
+    5. Keymaps ..................... *time-bomb-keymaps*
+    6. Progress Bar Styles ......... *time-bomb-styles*
+    7. Commands Avancées ........... *time-bomb-advanced*
+    8. Lua API ..................... *time-bomb-api*
+    9. Health Check ................ *time-bomb-health*
+
+==============================================================================
+
+1. INTRODUCTION					|time-bomb-introduction|
+
+time-bomb.nvim is a timer and Pomodoro manager for Neovim. It displays real-time
+floating timers with progress bars and automatic Pomodoro cycles (25/5/25/5/25/15).
+
+Features:
+- Custom timers with floating window
+- Full Pomodoro cycles with auto-progression  
+- 6 progress bar styles
+- Pause/resume functionality
+- Cycle navigation (next/prev)
+- Auto-reposition on resize
+
+==============================================================================
+
+2. INSTALLATION					|time-bomb-installation|
+
+With lazy.nvim: >lua
+    {
+      "Lachignol/time-bomb.nvim",
+      config = function()
+        require("time-bomb").setup({
+          enable_default_keymaps = true,
+          timer_color = "lime",
+        })
+      end,
+    }
+<
+
+==============================================================================
+
+3. CONFIGURATION					|time-bomb-configuration|
+
+Available options:
+
+> **enable_default_keymaps** (boolean)
+  Enable default keymaps
+  Default: `true`
+
+> **keymaps** (table) >
+  - `pomodoro_start`: `<leader>tbs` (default) - `:Pomodoro`
+  - `timer_custom`: `<leader>tbc` (default)   - `:Timer`
+  - `stop_timer`: `<leader>tbe` (default)     - `:StopTimer`
+  - `pause_timer`: `<leader>tbp` (default)    - `:PauseTimer`
+  - `next_timer`: `<leader>tbn` (default)     - `:NextCycle`
+  - `prev_timer`: `<leader>tbb` (default)     - `:PrevCycle`
+<
+
+> **pomodoro_cycles** (array of tables) >
+  Custom Pomodoro cycles:
+  ```lua
+  {
+    { title = "Work", time = "25", style = "normal" },
+    { title = "Short-Break", time = "5", style = "mama-lova" },
+    { title = "Work", time = "25", style = "cyberpunk" },
+    { title = "Short-Break", time = "5", style = "fire" },
+    { title = "Work", time = "25", style = "dots" },
+    { title = "Long-Break", time = "15", style = "music" }
+  }
+  ```
+  **Valid styles**: `"normal"`, `"mama-lova"`, `"cyberpunk"`, `"fire"`, `"dots"`, `"music"`
+<
+
+> **timer_color** (string)
+  Timer color: `"lime"`, `"blue"`, `"black"`, `"gray"`, `"silver"`, `"white"`, `"fuchsia"`
+  Default: `"lime"`
+
+> **enable_notification** (boolean)
+  Show nvim-notify on timeout
+  Default: `false`
+
+> **enable_confirmation** (boolean) 
+  Ask confirmation before next cycle
+  Default: `false`
+
+Full example: >lua
+    require("time-bomb").setup({
+      enable_default_keymaps = true,
+      enable_notification = true,
+      enable_confirmation = true,
+      timer_color = "fuchsia",
+      keymaps = {
+        pomodoro_start = "<leader>p",
+        timer_custom = "<leader>t",
+        stop_timer = "<leader>x",
+        pause_timer = "<leader>z",
+        next_timer = "<leader>n",
+        prev_timer = "<leader>b",
+      },
+      pomodoro_cycles = {
+        { title = "Work", time = "25", style = "normal" },
+        { title = "Short-Break", time = "5", style = "mama-lova" },
+        { title = "Work", time = "25", style = "cyberpunk" },
+        { title = "Short-Break", time = "5", style = "fire" },
+        { title = "Work", time = "25", style = "dots" },
+        { title = "Long-Break", time = "20", style = "music" },
+      },
+    })
+<
+
+==============================================================================
+
+4. COMMANDS						|time-bomb-commands|
+
+:Timer [N]						*:Timer*
+    Start custom N-minute timer.
+    Examples: `:Timer 5`, `:Timer 25`, `:Timer` (prompt)
+
+:Pomodoro						*:Pomodoro*
+    Start full Pomodoro cycle from current position.
+
+:StopTimer						*:StopTimer*
+    Stop current timer immediately.
+
+:PauseTimer						*:PauseTimer*
+    Toggle pause/resume current timer.
+
+==============================================================================
+
+5. KEYMAPS						|time-bomb-keymaps|
+
+Default keymaps (if `enable_default_keymaps = true`):
+
+<leader>tbc  → :Timer          (Custom timer)      ~
+<leader>tbs  → :Pomodoro       (Pomodoro start)    ~
+<leader>tbe  → :StopTimer      (Stop timer)        ~
+<leader>tbp  → :PauseTimer     (Pause/resume)      ~
+<leader>tbn  → :NextCycle      (Next cycle)        ~
+<leader>tbb  → :PrevCycle      (Previous cycle)    ~
+
+
+Customizable via `config.keymaps`.
+
+==============================================================================
+
+6. PROGRESS BAR STYLES				|time-bomb-styles|
+
+normal      12:30     W:11 H:1    Simple timer    ~
+mama-lova [❤️❤️❤️🩶🩶🩶🩶🩶🩶🩶] W:22 H:2    Heart animation  ~
+cyberpunk ▐███░░░░░░░▌ W:20 H:2    Neon futurist     ~
+fire      🟥🟥🟥🟥🟥⬜⬜⬜⬜⬜ W:20 H:1    Fire gradient     ~
+dots      ●●●●●○○○○○   W:20 H:1    Elegant dots      ~
+music     ♪♪♪♪♪.....   W:20 H:1    Music notes       ~
+
+Invalid styles auto-corrected to `normal`.
+
+
+==============================================================================
+
+7. COMMANDS AVANCÉS				|time-bomb-advanced|
+
+:NextCycle						*:NextCycle*
+    Jump to next cycle immediately (skip current).
+
+:PrevCycle						*:PrevCycle*
+    Jump to previous cycle.
+
+**Usage**: Perfect for cycle navigation during Pomodoro sessions.
+
+==============================================================================
+
+8. LUA API						|time-bomb-api|
+
+> require("time-bomb").setup(opts)		*time-bomb.setup()*
+    Configure plugin.
+
+> require("time-bomb").run_timer(minutes, "TIMER")	*time-bomb.run_timer()*
+    Start custom timer.
+
+> require("time-bomb").run_timer("nimp", "POMODORO")	*time-bomb.run_pomodoro()*
+    Start next Pomodoro cycle.
+
+> require("time-bomb").stop_timer()		*time-bomb.stop_timer()*
+    Stop current timer.
+
+> require("time-bomb").pause_timer()		*time-bomb.pause_timer()*
+    Toggle pause/resume.
+
+> require("time-bomb").next_cycle()		*time-bomb.next_cycle()*
+> require("time-bomb").prev_cycle()		*time-bomb.prev_cycle()*
+    Navigate cycles.
+
+==============================================================================
+
+9. HEALTH CHECK					|time-bomb-health|
+
+`:checkhealth time-bomb`
+
+**Checks**:
+- Neovim **0.8+** version
+- Config types validation 
+- `pomodoro_cycles`: titles ≤ **11 chars**, valid styles, times **1-1439 min**
+- Valid `timer_color` values
+- Keymaps status from config
+
+**Auto-fixes** (appliqués silencieusement):
+- Invalid styles → `normal`
+- Invalid colors → `lime`
+- Invalid times → clamped (**1-1439** min)
+- Type errors → reset to defaults
+- Invalid cycle → first default cycle
+
+*Example output*:
+```
+time-bomb.nvim
+  ✓ Neovim version 0.8+
+  
+  CONFIG ERRORS (~3 found):
+  ✗ [error] pomodoro_cycles[2]: title "SuperLongWorkSession" > 11 chars (truncated)
+  ✗ [error] pomodoro_cycles[3]: style "invalid-style" → normal
+  ✗ [error] timer_color: "purple" → lime
+  
+  CONFIG WARNINGS (~1 found):
+  ⚠ [warning] pomodoro_cycles[1] "Work" title > 10 chars (truncated)
+  
+  INFO:
+  ✓ keymaps are set
+  ✓ Configuration: 6 cycles processed
+  
+time-bomb: READY (with 3 auto-fixes)
+```
+
+**Utilisation**:
+```
+:checkhealth time-bomb          " Voir toutes les erreurs/warnings
+:lua require'time-bomb.config'.setup{}  " Re-valider config
+```
+
+**Notes**:
+- Les **auto-fixes** sont appliqués **immédiatement**
+- `:checkhealth` affiche l'état **actuel** après corrections
+
+==============================================================================
+
+vim:tw=78:ts=8:ft=help:norl:
