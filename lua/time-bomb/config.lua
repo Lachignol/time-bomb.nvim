@@ -28,7 +28,6 @@ m.defaults = {
 	},
 	-- default color for timer
 	timer_color = "lime",
-
 	-- default enable notification
 	enable_notification = true,
 }
@@ -116,6 +115,15 @@ function m.setup(user_options)
 	end
 
 	---------------------------------------------check pomodoro_cycles---------------------------------------------
+	if type(m.options.pomodoro_cycles) ~= "table" or #m.options.pomodoro_cycles == 0 then
+		table.insert(
+			m.health.errors,
+			"[error] time-bomb pomodoro_cycles is empty or invalid → using defaults"
+		)
+		utils.notify("pomodoro_cycles reset to defaults. See :checkhealth time-bomb", 3)
+		m.options.pomodoro_cycles = m.defaults.pomodoro_cycles
+	end
+
 	for i = 1, #m.options.pomodoro_cycles do
 		-- check de tout les type du cycle en cours si pas bon je remplace par le premier cycle par default
 		if not validate_type_of_one_cycle_of_pomodoro(m.options.pomodoro_cycles[i]) then
