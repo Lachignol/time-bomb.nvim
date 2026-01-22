@@ -29,6 +29,8 @@ m.defaults = {
 	},
 	-- default color for timer
 	timer_color = "lime",
+
+	enable_notification = true,
 }
 
 -- style valide
