@@ -132,12 +132,12 @@ require("time-bomb").setup({
 
 | Style | Aperçu (50%) | Width | Height | Description |
 |-------|--------------|-------|--------|-------------|
-| `normal` | `  12min30s` | 11 | 1 | Timer simple |
-| `mama-lova` | `[❤️❤️❤️🩶🩶🩶🩶🩶🩶🩶]` | 22 | 2 | Cœurs ❤️🩶 |
-| `cyberpunk` | `▐███░░░░░░░▌` | 20 | 2 | Néon futuriste |
-| `fire` | `🟥🟥🟥🟥🟥⬜⬜⬜⬜⬜` | 20 | 1 | Feu gradient |
-| `dots` | `●●●●●○○○○○` | 20 | 1 | Points élégants |
-| `music` | `♪♪♪♪♪.....` | 20 | 1 | Notes musicales |
+| `normal` | `  12min30s` | 11 | 1 | Simple timer |
+| `mama-lova` | `[❤️❤️❤️🩶🩶🩶🩶🩶🩶🩶]` | 22 | 2 | Hearts  ❤️🩶 |
+| `cyberpunk` | `▐███░░░░░░░▌` | 20 | 2 | Futuristic neon |
+| `fire` | `🟥🟥🟥🟥🟥⬜⬜⬜⬜⬜` | 20 | 1 | Gradient fire |
+| `dots` | `●●●●●○○○○○` | 20 | 1 | Elegant dots |
+| `music` | `♪♪♪♪♪.....` | 20 | 1 | Musical notes |
 
 ### **Configuration des cycles :**
 
