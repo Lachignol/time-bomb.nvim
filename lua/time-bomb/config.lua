@@ -88,6 +88,10 @@ function m.setup(user_options)
 	-- fusionner la configuration utilisateur avec les valeurs par défaut
 	m.options = vim.tbl_deep_extend("force", m.defaults, user_options or {})
 
+print("DEBUG - pomodoro_cycles après merge:", vim.inspect(m.options.pomodoro_cycles))
+print("DEBUG - #cycles après merge:", #m.options.pomodoro_cycles)
+
+
 	-- check general des types de la config si pas bon je remet tout les valeurs par defaults
 	if not validate_general_type(m.options) then
 		table.insert(
