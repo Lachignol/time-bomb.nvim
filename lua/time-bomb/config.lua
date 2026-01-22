@@ -23,7 +23,7 @@ m.defaults = {
 		{ title = "Work",        time = "25", style = "fire" },
 		{ title = "Short-Break", time = "5",  style = "dots" },
 		{ title = "Work",        time = "25", style = "music" },
-		{ title = "Long-Break",  time = "1",  style = "normal" },
+		{ title = "Long-Break",  time = "15", style = "normal" },
 	},
 	-- default color for timer
 	timer_color = "lime",
