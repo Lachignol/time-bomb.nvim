@@ -3,7 +3,8 @@
 
 <table align="center"><tr><td>
 	
-![time-bomb](https://github.com/user-attachments/assets/efce3620-723a-404b-a600-ac82aad09b71)
+![time-bomb](https://github.com/user-attachments/assets/b04d6da8-5215-4435-9ccd-203c967b2494)
+
 
 
 </td></tr></table>
@@ -28,11 +29,17 @@
 ## 📷 Screenshots
 
 ### Style "normal"
-
-<img width="2544" height="1356" alt="style_normal" src="https://github.com/user-attachments/assets/aa02bdc8-cc41-4dc2-81bd-88b76a0a127b" />
-
+<img width="369" height="167" alt="normal" src="https://github.com/user-attachments/assets/8a28cc21-acd9-422d-9398-bc95d169c872" />
+### Style "music"
+<img width="369" height="167" alt="music" src="https://github.com/user-attachments/assets/9f87bd14-a10e-400e-9f96-ab5040069654" />
 ### Style "mama-lova"
-<img width="2544" height="1356" alt="style_mama_lova" src="https://github.com/user-attachments/assets/5852821c-1a7d-4377-84c1-aae4ccf4d4e6" />
+<img width="369" height="167" alt="mama-lova" src="https://github.com/user-attachments/assets/a052ee0a-c979-42de-b837-0d43e42bbcd1" />
+### Style "fire"
+<img width="369" height="167" alt="fire" src="https://github.com/user-attachments/assets/205a6f00-911a-4498-b834-4c83245e6b81" />
+### Style "dots"
+<img width="369" height="167" alt="dots" src="https://github.com/user-attachments/assets/708eae07-d0a7-4570-b1d8-a3e22afde5ef" />
+### Style "cyberpunk"
+<img width="369" height="167" alt="cyberpunk" src="https://github.com/user-attachments/assets/a76237ac-cc4b-4758-8e00-640c0e82e7ff" />
 
 ## 📦 Installation
 
