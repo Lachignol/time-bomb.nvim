@@ -191,7 +191,7 @@ pomodorro_cycles = {
 :StopTimer      " Emergency stop
 ```
 
-**💡 Pro tip**: `:Timer` sans argument ouvre une **input** pour la durée.
+**💡 Pro tip**: `:Timer` without an argument opens an *input* for the duration.
 
 ## 📖 Documentation
 
