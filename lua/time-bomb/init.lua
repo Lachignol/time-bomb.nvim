@@ -35,7 +35,7 @@ end
 -- Fonction principal pour lancer timer selon le mode
 function M.run_timer(duration, mode)
 	if M.timer.instance ~= nil then
-		utils.notify("Timer already running. Use :StopTimer")
+		utils.notify("Timer already running. Stop the current timer before starting a new one.")
 		-- M.reinitialize_timer_state()
 		return
 	end

@@ -104,6 +104,8 @@ require("time-bomb").setup({
 require("time-bomb").setup({
   enable_default_keymaps = true,
   
+
+-- If you want overload with custom keymaps don't set enable_default_keymaps at false.
   keymaps = {
     timer_custom   = "<leader>tbc",  -- Custom timer
     pomodoro_start = "<leader>tbs",  -- Start Pomodoro
@@ -138,7 +140,7 @@ require("time-bomb").setup({
 | `dots` | `●●●●●○○○○○` | 20 | 1 | Elegant dots |
 | `music` | `♪♪♪♪♪.....` | 20 | 1 | Musical notes |
 
-### **Configuration des cycles :**
+### **Cycle configuration :**
 
 ```lua
 pomodorro_cycles = {
@@ -149,7 +151,7 @@ pomodorro_cycles = {
 }
 ```
 
-### **Styles disponibles :**
+### **Available styles :**
 
 ```
 "normal", "mama-lova", "cyberpunk", "fire", "dots", "music"
@@ -159,38 +161,38 @@ pomodorro_cycles = {
 
 ### Commands
 
-| Command       | Description                          |
-|---------------|--------------------------------------|
-| `:Timer [N]`  | Start custom **N-minute** timer      |
-| `:Pomodoro`   | Start **Pomodoro cycle**             |
-| `:StopTimer`  | **Stop** current timer               |
-| `:PauseTimer` | **Toggle** pause/resume              |
-| `:NextCycle`  | Jump to **next cycle**               |
-| `:PrevCycle`  | Jump to **previous cycle**           |
+| Command                | Description                          |
+|------------------------|--------------------------------------|
+| `:TimeBomb timer [N]`  | Start custom **N-minute** timer      |
+| `:TimeBomb pomodoro`   | Start **Pomodoro cycle**             |
+| `:TimeBomb stop`       | **Stop** current timer               |
+| `:TimeBomb pause`      | **Toggle** pause/resume              |
+| `:TimeBomb next`       | Jump to **next cycle**               |
+| `:TimeBomb prev`       | Jump to **previous cycle**           |
 
 ### Default Keymaps
 
 ```
-<leader>tbc  → :Timer      (Custom timer)
-<leader>tbs  → :Pomodoro   (Pomodoro start)  
-<leader>tbe  → :StopTimer  (Stop timer)
-<leader>tbp  → :PauseTimer (Pause/resume toggle)
-<leader>tbn  → :NextCycle  (Next cycle)
-<leader>tbb  → :PrevCycle  (Previous cycle)
+<leader>tbc  → :TimeBomb timer      (Custom timer)
+<leader>tbs  → :TimeBomb pomodoro   (Pomodoro start)  
+<leader>tbe  → :TimeBomb stop       (Stop timer)
+<leader>tbp  → :TimeBomb pause      (Pause/resume toggle)
+<leader>tbn  → :TimeBomb next       (Next cycle)
+<leader>tbb  → :TimeBomb prev       (Previous cycle)
 ```
 
 **Examples:**
 ```vim
-:Timer 5        " 5-minute timer
-:Timer 25       " 25-minute work session  
-:Pomodoro       " Full cycle (25/5/25/5/25/15)
-:PauseTimer     " Pause current timer
-:NextCycle      " Skip to next cycle immediately
-:PrevCycle      " Go back to previous cycle
-:StopTimer      " Emergency stop
+:TimeBomb timer 5        " 5-minute timer
+:TimeBomb timer 25       " 25-minute work session  
+:TimeBomb pomodoro       " Full cycle (25/5/25/5/25/15)
+:TimeBomb pause          " Pause current timer
+:TimeBomb next           " Skip to next cycle immediately
+:TimeBomb prev           " Go back to previous cycle
+:TimeBomb stop           " Emergency stop
 ```
 
-**💡 Pro tip**: `:Timer` without an argument opens an *input* for the duration.
+**💡 Pro tip**: `:TimeBomb timer` without an argument opens an *input* for the duration.
 
 ## 📖 Documentation
 

@@ -43,6 +43,22 @@ With lazy.nvim: >lua
       end,
     }
 <
+With packer.nvim: >lua
+	use {
+	  "Lachignol/time-bomb.nvim",
+	  config = function()
+	    require("time-bomb").setup()
+	  end
+	}
+
+With vim.pack: >lua
+	vim.pack.add({{src = "https://github.com/Lachignol/time-bomb.nvim"}})
+
+
+	require("time-bomb").setup({
+		enable_default_keymaps = true,
+		timer_color = "lime",
+	})
 
 ==============================================================================
 
@@ -55,12 +71,12 @@ Available options:
   Default: `true`
 
 > **keymaps** (table) >
-  - `pomodoro_start`: `<leader>tbs` (default) - `:Pomodoro`
-  - `timer_custom`: `<leader>tbc` (default)   - `:Timer`
-  - `stop_timer`: `<leader>tbe` (default)     - `:StopTimer`
-  - `pause_timer`: `<leader>tbp` (default)    - `:PauseTimer`
-  - `next_timer`: `<leader>tbn` (default)     - `:NextCycle`
-  - `prev_timer`: `<leader>tbb` (default)     - `:PrevCycle`
+  - `pomodoro_start`: `<leader>tbs` (default) - `:TimeBomb pomodoro`
+  - `timer_custom`: `<leader>tbc` (default)   - `:TimeBomb timer`
+  - `stop_timer`: `<leader>tbe` (default)     - `:TimeBomb stop`
+  - `pause_timer`: `<leader>tbp` (default)    - `:TimeBomb pause`
+  - `next_timer`: `<leader>tbn` (default)     - `:TimeBomb next`
+  - `prev_timer`: `<leader>tbb` (default)     - `:TimeBomb prev`
 <
 
 > **pomodoro_cycles** (array of tables) >
@@ -114,17 +130,17 @@ Full example: >lua
 
 4. COMMANDS						|time-bomb-commands|
 
-:Timer [N]						*:Timer*
+:TimeBomb timer [N]						*:timer*
     Start custom N-minute timer.
-    Examples: `:Timer 5`, `:Timer 25`, `:Timer` (prompt)
+    Examples: `:TimeBomb timer 5`, `:TimeBomb timer 25`, `:TimeBomb timer` (prompt)
 
-:Pomodoro						*:Pomodoro*
+:TimeBomb pomodoro						*:pomodoro*
     Start full Pomodoro cycle from current position.
 
-:StopTimer						*:StopTimer*
+:TimeBomb stop 						        *:stop*
     Stop current timer immediately.
 
-:PauseTimer						*:PauseTimer*
+:Timebomb pause						        *:pause*
     Toggle pause/resume current timer.
 
 ==============================================================================
@@ -133,12 +149,12 @@ Full example: >lua
 
 Default keymaps (if `enable_default_keymaps = true`):
 
-<leader>tbc  → :Timer          (Custom timer)      ~
-<leader>tbs  → :Pomodoro       (Pomodoro start)    ~
-<leader>tbe  → :StopTimer      (Stop timer)        ~
-<leader>tbp  → :PauseTimer     (Pause/resume)      ~
-<leader>tbn  → :NextCycle      (Next cycle)        ~
-<leader>tbb  → :PrevCycle      (Previous cycle)    ~
+<leader>tbc  → :TimeBomb timer          (Custom timer)      ~
+<leader>tbs  → :TimeBomb pomodoro       (Pomodoro start)    ~
+<leader>tbe  → :TimeBomb stop           (Stop timer)        ~
+<leader>tbp  → :TimeBomb pause          (Pause/resume)      ~
+<leader>tbn  → :TimeBomb next           (Next cycle)        ~
+<leader>tbb  → :TimeBomb preva          (Previous cycle)    ~
 
 
 Customizable via `config.keymaps`.
@@ -161,10 +177,10 @@ Invalid styles auto-corrected to `normal`.
 
 7. COMMANDS AVANCÉS				|time-bomb-advanced|
 
-:NextCycle						*:NextCycle*
+:TimeBomb next						*:next*
     Jump to next cycle immediately (skip current).
 
-:PrevCycle						*:PrevCycle*
+:TimeBomb prev						*:prev*
     Jump to previous cycle.
 
 **Usage**: Perfect for cycle navigation during Pomodoro sessions.

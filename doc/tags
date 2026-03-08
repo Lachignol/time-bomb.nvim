@@ -1,9 +1,9 @@
-:NextCycle	time-bomb.txt	/*:NextCycle*
-:PauseTimer	time-bomb.txt	/*:PauseTimer*
-:Pomodoro	time-bomb.txt	/*:Pomodoro*
-:PrevCycle	time-bomb.txt	/*:PrevCycle*
-:StopTimer	time-bomb.txt	/*:StopTimer*
-:Timer	time-bomb.txt	/*:Timer*
+:next	time-bomb.txt	/*:next*
+:pause	time-bomb.txt	/*:pause*
+:pomodoro	time-bomb.txt	/*:pomodoro*
+:prev	time-bomb.txt	/*:prev*
+:stop	time-bomb.txt	/*:stop*
+:timer	time-bomb.txt	/*:timer*
 time-bomb-advanced	time-bomb.txt	/*time-bomb-advanced*
 time-bomb-api	time-bomb.txt	/*time-bomb-api*
 time-bomb-commands	time-bomb.txt	/*time-bomb-commands*

@@ -5,7 +5,7 @@ local utils = require("time-bomb.utils")
 m.defaults = {
 	-- set at false if you want disable default_keymap
 	enable_default_keymaps = true,
-	-- custom keymaps don't desactivate enable_default_keymaps with you want overload your keymaps
+	-- for custom keymaps don't desactivate enable_default_keymaps if you want overload your keymaps
 	keymaps = {
 		pomodoro_start = "<leader>tbs",
 		timer_custom = "<leader>tbc",
@@ -201,12 +201,14 @@ function m.setup(user_options)
 	---------------------si keymaps enable je set les keymaps si oui je met une info ----------------------------------
 
 	if m.options.enable_default_keymaps then
-		vim.keymap.set("n", m.options.keymaps.pomodoro_start, ":Pomodoro<cr>", { desc = "Start pomodoro" })
-		vim.keymap.set("n", m.options.keymaps.timer_custom, ":Timer", { desc = "Start custom timer" })
-		vim.keymap.set("n", m.options.keymaps.stop_timer, ":StopTimer<cr>", { desc = "Stop timer" })
-		vim.keymap.set("n", m.options.keymaps.pause_timer, ":PauseTimer<cr>", { desc = "Toggle timer in pause" })
-		vim.keymap.set("n", m.options.keymaps.next_timer, ":NextCycle<cr>", { desc = "Go to next cycle" })
-		vim.keymap.set("n", m.options.keymaps.prev_timer, ":PrevCycle<cr>", { desc = "Go to previous cycle" })
+		vim.keymap.set("n", m.options.keymaps.pomodoro_start, ":TimeBomb pomodoro<cr>",
+			{ desc = "Start pomodoro" })
+		vim.keymap.set("n", m.options.keymaps.timer_custom, ":TimeBomb timer", { desc = "Start custom timer" })
+		vim.keymap.set("n", m.options.keymaps.stop_timer, ":TimeBomb stop<cr>", { desc = "Stop timer" })
+		vim.keymap.set("n", m.options.keymaps.pause_timer, ":TimeBomb pause<cr>",
+			{ desc = "Toggle timer in pause" })
+		vim.keymap.set("n", m.options.keymaps.next_timer, ":TimeBomb next<cr>", { desc = "Go to next cycle" })
+		vim.keymap.set("n", m.options.keymaps.prev_timer, ":TimeBomb prev<cr>", { desc = "Go to previous cycle" })
 		table.insert(m.health.info, "keymaps are set")
 	end
 end

@@ -6,7 +6,7 @@ local M = {}
 -- Check si aucun autre timer est en cours
 function M.ready_to_start(timer_in_progress)
 	if timer_in_progress == true then
-		M.notify("Timer already in progress\nFor stop enter :StopTimer")
+		M.notify("Timer already in progress\nFor stop enter :TimeBomb stop")
 		return false
 	end
 	return true
