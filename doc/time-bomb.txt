@@ -66,11 +66,11 @@ With vim.pack: >lua
 
 Available options:
 
-> **enable_default_keymaps** (boolean)
+*enable_default_keymaps* (boolean)
   Enable default keymaps
   Default: `true`
 
-> **keymaps** (table) >
+*keymaps* (table) >
   - `pomodoro_start`: `<leader>tbs` (default) - `:TimeBomb pomodoro`
   - `timer_custom`: `<leader>tbc` (default)   - `:TimeBomb timer`
   - `stop_timer`: `<leader>tbe` (default)     - `:TimeBomb stop`
@@ -79,9 +79,9 @@ Available options:
   - `prev_timer`: `<leader>tbb` (default)     - `:TimeBomb prev`
 <
 
-> **pomodoro_cycles** (array of tables) >
+*pomodoro_cycles* (array of tables) >
   Custom Pomodoro cycles:
-  ```lua
+>lua
   {
     { title = "Work", time = "25", style = "normal" },
     { title = "Short-Break", time = "5", style = "mama-lova" },
@@ -90,19 +90,19 @@ Available options:
     { title = "Work", time = "25", style = "dots" },
     { title = "Long-Break", time = "15", style = "music" }
   }
-  ```
-  **Valid styles**: `"normal"`, `"mama-lova"`, `"cyberpunk"`, `"fire"`, `"dots"`, `"music"`
+<
+  *Valid-styles*: `"normal"`, `"mama-lova"`, `"cyberpunk"`, `"fire"`, `"dots"`, `"music"`
 <
 
-> **timer_color** (string)
+*timer_color* (string)
   Timer color: `"lime"`, `"blue"`, `"black"`, `"gray"`, `"silver"`, `"white"`, `"fuchsia"`
   Default: `"lime"`
 
-> **enable_notification** (boolean)
+*enable_notification* (boolean)
   Show nvim-notify on timeout
   Default: `false`
 
-Full example: >lua
+*Full-example*: >lua
     require("time-bomb").setup({
       enable_default_keymaps = true,
       enable_notification = true,
@@ -163,12 +163,12 @@ Customizable via `config.keymaps`.
 
 6. PROGRESS BAR STYLES				|time-bomb-styles|
 
-normal      12:30     W:11 H:1    Simple timer    ~
+normal      12:30                W:11 H:1    Simple timer    ~
 mama-lova [❤️❤️❤️🩶🩶🩶🩶🩶🩶🩶] W:22 H:2    Heart animation  ~
-cyberpunk ▐███░░░░░░░▌ W:20 H:2    Neon futurist     ~
-fire      🟥🟥🟥🟥🟥⬜⬜⬜⬜⬜ W:20 H:1    Fire gradient     ~
-dots      ●●●●●○○○○○   W:20 H:1    Elegant dots      ~
-music     ♪♪♪♪♪.....   W:20 H:1    Music notes       ~
+cyberpunk ▐███░░░░░░░▌           W:20 H:2    Neon futurist     ~
+fire      🟥🟥🟥🟥🟥⬜⬜⬜⬜⬜   W:20 H:1    Fire gradient     ~
+dots      ●●●●●○○○○○             W:20 H:1    Elegant dots      ~
+music     ♪♪♪♪♪.....             W:20 H:1    Music notes       ~
 
 Invalid styles auto-corrected to `normal`.
 
@@ -183,29 +183,30 @@ Invalid styles auto-corrected to `normal`.
 :TimeBomb prev						*:prev*
     Jump to previous cycle.
 
-**Usage**: Perfect for cycle navigation during Pomodoro sessions.
+*Usage*: Perfect for cycle navigation during Pomodoro sessions.
 
 ==============================================================================
 
 8. LUA API						|time-bomb-api|
 
-> require("time-bomb").setup(opts)		*time-bomb.setup()*
+>lua
+require("time-bomb").setup(opts)		        *time-bomb.setup()*
     Configure plugin.
 
-> require("time-bomb").run_timer(minutes, "TIMER")	*time-bomb.run_timer()*
+require("time-bomb").run_timer(minutes, "TIMER")	*time-bomb.run_timer()*
     Start custom timer.
 
-> require("time-bomb").run_timer("nimp", "POMODORO")	*time-bomb.run_pomodoro()*
+require("time-bomb").run_timer("nimp", "POMODORO")	*time-bomb.run_pomodoro()*
     Start next Pomodoro cycle.
 
-> require("time-bomb").stop_timer()		*time-bomb.stop_timer()*
+require("time-bomb").stop_timer()			*time-bomb.stop_timer()*
     Stop current timer.
 
-> require("time-bomb").pause_timer()		*time-bomb.pause_timer()*
+require("time-bomb").pause_timer()			*time-bomb.pause_timer()*
     Toggle pause/resume.
 
-> require("time-bomb").next_cycle()		*time-bomb.next_cycle()*
-> require("time-bomb").prev_cycle()		*time-bomb.prev_cycle()*
+require("time-bomb").next_cycle()			*time-bomb.next_cycle()*
+require("time-bomb").prev_cycle()			*time-bomb.prev_cycle()*
     Navigate cycles.
 
 ==============================================================================
@@ -214,49 +215,47 @@ Invalid styles auto-corrected to `normal`.
 
 `:checkhealth time-bomb`
 
-**Checks**:
-- Neovim **0.8+** version
+*Checks*:
+- Neovim *0.8+* version
 - Config types validation 
-- `pomodoro_cycles`: titles ≤ **11 chars**, valid styles, times **1-1439 min**
+- `pomodoro_cycles`: titles ≤ *11chars*, valid styles, times *1-1439min*
 - Valid `timer_color` values
 - Keymaps status from config
 
-**Auto-fixes** (appliqués silencieusement):
+*Auto-fixes* (appliqués silencieusement):
 - Invalid styles → `normal`
 - Invalid colors → `lime`
-- Invalid times → clamped (**1-1439** min)
+- Invalid times → clamped (*1-1439* min)
 - Type errors → reset to defaults
 - Invalid cycle → first default cycle
 
-*Example output*:
-```
-time-bomb.nvim
-  ✓ Neovim version 0.8+
-  
-  CONFIG ERRORS (~3 found):
-  ✗ [error] pomodoro_cycles[2]: title "SuperLongWorkSession" > 11 chars (truncated)
-  ✗ [error] pomodoro_cycles[3]: style "invalid-style" → normal
-  ✗ [error] timer_color: "purple" → lime
-  
-  CONFIG WARNINGS (~1 found):
-  ⚠ [warning] pomodoro_cycles[1] "Work" title > 10 chars (truncated)
-  
-  INFO:
-  ✓ keymaps are set
-  ✓ Configuration: 6 cycles processed
-  
-time-bomb: READY (with 3 auto-fixes)
-```
+*Example-output*:
+>lua
+	time-bomb.nvim
+	  ✓ Neovim version 0.8+
+	  
+	  CONFIG ERRORS (~3 found):
+	  ✗ [error] pomodoro_cycles[2]: title "SuperLongWorkSession" > 11 chars (truncated)
+	  ✗ [error] pomodoro_cycles[3]: style "invalid-style" → normal
+	  ✗ [error] timer_color: "purple" → lime
+	  
+	  CONFIG WARNINGS (~1 found):
+	  ⚠ [warning] pomodoro_cycles[1] "Work" title > 10 chars (truncated)
+	  
+	  INFO:
+	  ✓ keymaps are set
+	  ✓ Configuration: 6 cycles processed
+	  
+	time-bomb: READY (with 3 auto-fixes)
 
-**Utilisation**:
-```
-:checkhealth time-bomb          " Voir toutes les erreurs/warnings
-:lua require'time-bomb.config'.setup{}  " Re-valider config
-```
+*Utilisation*:
+>lua
+	:checkhealth time-bomb                  " Voir toutes les erreurs/warnings"
+	:lua require'time-bomb.config'.setup{}  " Re-valider config"
 
-**Notes**:
-- Les **auto-fixes** sont appliqués **immédiatement**
-- `:checkhealth` affiche l'état **actuel** après corrections
+*Notes*:
+- Les *auto-fixes* sont appliqués *immédiatement*
+- `:checkhealth` affiche l'état *actuel* après corrections
 
 ==============================================================================
 
