@@ -217,6 +217,8 @@ Contributions welcome! Please:
 
 ![License](https://img.shields.io/badge/license-MIT-orange.svg)
 
+<a href="https://dotfyle.com/plugins/{owner}/{name}"><img src="https://dotfyle.com/plugins/Lachignol/time-bomb.nvim/shield" /></a>
+
 MIT License - see [LICENSE](License) file.
 
 ***
