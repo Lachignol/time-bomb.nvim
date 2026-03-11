@@ -87,7 +87,7 @@ end
 function M.create_mama_lova_progress_bar(progression, timer)
 	local width = 10
 	local to_fill = math.floor(progression * width)
-	if (progression > 0.95) then to_fill = width end
+	if (progression > 0.98) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	local to_empty = width - to_fill
 	local bar = " [" .. ("❤️"):rep(to_fill) .. ("🩶"):rep(to_empty) .. "] "
@@ -98,7 +98,7 @@ end
 function M.create_cyberpunk_progress_bar(progression, timer)
 	local width = 10
 	local to_fill = math.floor(progression * width)
-	if (progression > 0.95) then to_fill = width end
+	if (progression > 0.98) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	return "▌" .. string.rep("█", to_fill) .. string.rep("░", width - to_fill) .. "▐"
 end
@@ -107,7 +107,7 @@ end
 function M.create_dots_progress_bar(progression, timer)
 	local width = 10
 	local to_fill = math.floor(progression * width)
-	if (progression > 0.95) then to_fill = width end
+	if (progression > 0.98) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	local filled = string.rep("●", to_fill)
 	local empty = string.rep("○", width - to_fill)
@@ -118,7 +118,7 @@ end
 function M.create_music_progress_bar(progression, timer)
 	local width = 10
 	local to_fill = math.floor(progression * width)
-	if (progression > 0.95) then to_fill = width end
+	if (progression > 0.98) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	local filled = string.rep("♪", to_fill)
 	local empty = string.rep("·", width - to_fill)
@@ -129,7 +129,7 @@ end
 function M.create_fire_progress_bar(progression, timer)
 	local width = 10
 	local to_fill = math.floor(progression * width)
-	if (progression > 0.95) then to_fill = width end
+	if (progression > 0.98) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	local filled = string.rep("▰", to_fill)
 	local empty = string.rep("▱", width - to_fill)
@@ -140,7 +140,7 @@ end
 function M.create_gta_progress_bar(progression, timer)
 	local width = 10
 	local to_fill = math.floor(progression * width)
-	if (progression > 0.95) then to_fill = width end
+	if (progression > 0.98) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	local filled = string.rep("★", to_fill)
 	local empty = string.rep("☆", width - to_fill)
@@ -151,7 +151,7 @@ end
 function M.create_zombie_progress_bar(progression, timer)
 	local width = 10
 	local to_fill = math.floor(progression * width)
-	if (progression > 0.95) then to_fill = width end
+	if (progression > 0.98) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	local filled = string.rep(" ☢", to_fill)
 	local empty = string.rep(" ○", width - to_fill)
@@ -162,7 +162,7 @@ end
 function M.create_casino_progress_bar(progression, timer)
 	local width = 10
 	local to_fill = math.floor(progression * width)
-	if (progression > 0.95) then to_fill = width end
+	if (progression > 0.98) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	local filled = string.rep("♠", to_fill)
 	local empty = string.rep("♤", width - to_fill)
