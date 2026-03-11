@@ -114,6 +114,10 @@ require("time-bomb").setup({
     next_timer     = "<leader>tbn",  -- Next cycle
     prev_timer     = "<leader>tbb",  -- Previous cycle
   },
+  position = {
+	layout = "top-right",            -- Options: bottom-right, top-left, bottom-left, top-right
+	margin = { top = 1, right = 2 }, -- Margin for the popup
+  },
   
   pomodoro_cycles = {
 		{ title = "Work",        time = "25", style = "mama-lova" }, -- Time in minute*
@@ -121,7 +125,7 @@ require("time-bomb").setup({
 		{ title = "Work",        time = "25", style = "fire" },
 		{ title = "Short-Break", time = "5",  style = "dots" },
 		{ title = "Work",        time = "25", style = "music" },
-		{ title = "Long-Break",  time = "15",  style = "normal" },
+		{ title = "Long-Break",  time = "15", style = "normal" },
 	},
   -- *Time must be upper than 1 min and less than 1440 min (1 day)
   timer_color = "lime",           -- lime, blue, black, gray, silver, white, fuchsia

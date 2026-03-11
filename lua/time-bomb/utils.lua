@@ -31,6 +31,31 @@ end
 
 ------------------------------Fonctions pour affichage-------------------------------
 
+function M.set_col_row_anchor(config_position)
+	local col, row, anchor
+	if config_position.layout == "top-right" then
+		col = vim.o.columns - tonumber(config_position.margin.right)
+		row = config_position.margin.top
+		anchor = 'NE'
+	end
+	if config_position.layout == "top-left" then
+		col = tonumber(config_position.margin.right)
+		row = config_position.margin.top
+		anchor = 'NW'
+	end
+	if config_position.layout == "bottom-right" then
+		col = vim.o.columns - tonumber(config_position.margin.right)
+		row = vim.o.lines - config_position.margin.top
+		anchor = 'SE'
+	end
+	if config_position.layout == "bottom-left" then
+		col = tonumber(config_position.margin.right)
+		row = vim.o.lines - config_position.margin.top
+		anchor = 'SW'
+	end
+	return col, row, anchor
+end
+
 -- handler pour cree la barre de progression qui correspond
 function M.create_progress_bar(timer, total_duration_of_cycle, style)
 	local bar = nil
@@ -154,8 +179,10 @@ function M.set_color(color_of_user)
 end
 
 -- Prepare le buffer et les options de fenetres en fonction du cas timer (avec ces options selon le style) ou simple timer
-function M.set_buffer_and_options(current_pomodoro_cycle)
+function M.set_buffer_and_options(current_pomodoro_cycle, config_position)
 	local buf, opts
+
+	local col, row, anchor = M.set_col_row_anchor(config_position)
 	if current_pomodoro_cycle
 	then
 		buf = vim.api.nvim_create_buf(false, true)
@@ -165,9 +192,9 @@ function M.set_buffer_and_options(current_pomodoro_cycle)
 			relative = 'editor',
 			width = M.set_width(current_pomodoro_cycle.style),
 			height = M.set_height(current_pomodoro_cycle.style),
-			col = vim.o.columns - 2,
-			row = 1,
-			anchor = 'NE',
+			col = col,
+			row = row,
+			anchor = anchor,
 			style = 'minimal',
 			zindex = 1000,
 			focusable = false
@@ -180,9 +207,9 @@ function M.set_buffer_and_options(current_pomodoro_cycle)
 			relative = 'editor',
 			width = 11,
 			height = 1,
-			col = vim.o.columns - 2,
-			row = 1,
-			anchor = 'NE',
+			col = col,
+			row = row,
+			anchor = anchor,
 			style = 'minimal',
 			zindex = 1000,
 			focusable = false

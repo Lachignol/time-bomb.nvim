@@ -7,13 +7,14 @@
 :stop	time-bomb.txt	/*:stop*
 :timer	time-bomb.txt	/*:timer*
 Auto-fixes	time-bomb.txt	/*Auto-fixes*
-actuel	time-bomb.txt	/*actuel*
 auto-fixes	time-bomb.txt	/*auto-fixes*
+current	time-bomb.txt	/*current*
 enable_default_keymaps	time-bomb.txt	/*enable_default_keymaps*
 enable_notification	time-bomb.txt	/*enable_notification*
-immédiatement	time-bomb.txt	/*immédiatement*
+immediately	time-bomb.txt	/*immediately*
 keymaps	time-bomb.txt	/*keymaps*
 pomodoro_cycles	time-bomb.txt	/*pomodoro_cycles*
+position	time-bomb.txt	/*position*
 time-bomb-advanced	time-bomb.txt	/*time-bomb-advanced*
 time-bomb-api	time-bomb.txt	/*time-bomb-api*
 time-bomb-commands	time-bomb.txt	/*time-bomb-commands*

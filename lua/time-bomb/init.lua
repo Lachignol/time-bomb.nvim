@@ -48,7 +48,7 @@ function M.run_timer(duration, mode)
 			M.reinitialize_timer_state()
 			return
 		end
-		M.timer.buf, M.timer.opts = utils.set_buffer_and_options()
+		M.timer.buf, M.timer.opts = utils.set_buffer_and_options(nil, config.options.position)
 		local color = utils.set_color(config.options.timer_color)
 		M.timer.remaining = duration * 60
 		M.timer.window = utils.edit_and_open_win(M.timer.buf, M.timer.opts, color)
@@ -74,7 +74,7 @@ function M.run_timer(duration, mode)
 		local current_cycle = config.options.pomodoro_cycles[M.timer.cycle]
 		local total_duration_of_current_cycle = tonumber(current_cycle.time)
 		M.timer.remaining = total_duration_of_current_cycle * 60
-		M.timer.buf, M.timer.opts = utils.set_buffer_and_options(current_cycle)
+		M.timer.buf, M.timer.opts = utils.set_buffer_and_options(current_cycle, config.options.position)
 		local color = utils.set_color(config.options.timer_color)
 		local cycle_style = current_cycle.style
 		M.timer.window = utils.edit_and_open_win(M.timer.buf, M.timer.opts, color)

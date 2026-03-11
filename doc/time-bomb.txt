@@ -79,6 +79,18 @@ Available options:
   - `prev_timer`: `<leader>tbb` (default)     - `:TimeBomb prev`
 <
 
+*position* (table) >lua
+Layout options: `"bottom-right"`, `"bottom-left"`, `"top-left"`, `"top-right"`
+Margin-values (top and right): must be equal or upper to 0
+
+Default:
+  position = {
+	layout = "top-right",            
+	margin = { top = 1, right = 2 }, 
+  },
+
+
+
 *pomodoro_cycles* (array of tables) >
   Custom Pomodoro cycles:
 >lua
@@ -107,6 +119,10 @@ Available options:
       enable_default_keymaps = true,
       enable_notification = true,
       timer_color = "fuchsia",
+      position = {
+	layout = "top-right",            
+	margin = { top = 1, right = 2 }, 
+      },
       keymaps = {
         pomodoro_start = "<leader>p",
         timer_custom = "<leader>t",
@@ -220,10 +236,14 @@ require("time-bomb").prev_cycle()			*time-bomb.prev_cycle()*
 - Config types validation 
 - `pomodoro_cycles`: titles ≤ *11chars*, valid styles, times *1-1439min*
 - Valid `timer_color` values
+- Valid `position.layout` values
+- position.margin : top <= 0, right <= 0
 - Keymaps status from config
 
 *Auto-fixes* (appliqués silencieusement):
 - Invalid styles → `normal`
+- Invalid position → `top-right`
+- Invalid position.margin values → `top` = 1, `right` = 2
 - Invalid colors → `lime`
 - Invalid times → clamped (*1-1439* min)
 - Type errors → reset to defaults
@@ -254,8 +274,8 @@ require("time-bomb").prev_cycle()			*time-bomb.prev_cycle()*
 	:lua require'time-bomb.config'.setup{}  " Re-valider config"
 
 *Notes*:
-- Les *auto-fixes* sont appliqués *immédiatement*
-- `:checkhealth` affiche l'état *actuel* après corrections
+- The *auto-fixes* are *immediately* applied
+- `:checkhealth` shows the *current* status after fixes 
 
 ==============================================================================
 

@@ -14,6 +14,10 @@ m.defaults = {
 		next_timer = "<leader>tbn",
 		prev_timer = "<leader>tbb",
 	},
+	position = {
+		layout = "top-right", -- Options: bottom-right, top-left, bottom-left, top-right
+		margin = { top = 1, right = 2 }, -- Margin for the popup
+	},
 	-- default cycles but you can add yours
 	-- the time is in number of minute
 	-- you have only 6 style for the moment
@@ -36,6 +40,9 @@ local valid_style = { "mama-lova", "normal", "cyberpunk", "fire", "dots", "music
 
 -- couleurs valide
 local valid_colors = { "lime", "blue", "black", "gray", "silver", "white", "fuchsia" }
+
+-- layout valide
+local valid_layout = { "bottom-left", "bottom-right", "top-left", "top-right" }
 
 m.health = {
 	errors = {},
@@ -60,6 +67,7 @@ local function validate_general_type(config)
 	return (
 		type(config.enable_default_keymaps) == "boolean"
 		and type(config.keymaps) == "table"
+		and type(config.position) == "table"
 		and type(config.pomodoro_cycles) == "table"
 		and type(config.timer_color) == "string"
 		and type(config.enable_notification) == "boolean"
@@ -74,6 +82,16 @@ local function validate_type_keymaps(config)
 		and type(config.keymaps.pause_timer) == "string"
 		and type(config.keymaps.next_timer) == "string"
 		and type(config.keymaps.prev_timer) == "string"
+	)
+end
+
+
+local function validate_type_position(config)
+	return (
+		type(config.position.layout) == "string"
+		and type(config.position.margin) == "table"
+		and type(config.position.margin.top) == "number"
+		and type(config.position.margin.right) == "number"
 	)
 end
 
@@ -94,6 +112,7 @@ function m.setup(user_options)
 			"[error] time-bomb config have an invalid type: \n \
 			enable_default_keymaps must be boolean \
 			keymaps must be table \
+			position must be table \
 			pomodoro_cycles must be table \
 			timer_color must be string \
 			enable_notification must be boolean"
@@ -189,7 +208,55 @@ function m.setup(user_options)
 		end
 	end
 
-	----------------------------------------------------------------------------------------------------------------
+	--------------------------------------------------POSITION----------------------------------------------------
+
+	-- check position type
+	if not validate_type_position(m.options) then
+		table.insert(
+			m.health.errors,
+			"[error] time-bomb config position table have an invalid type: \n \
+			layout must be string \
+			margin must be a table \
+			and margin values 'top' and 'right' must be number"
+		)
+		utils.notify("1 error at least you can see more with :checkhealth time-bomb", 3)
+		m.options.position = m.defaults.position
+	end
+
+	-- check si position layout est valid
+	if not vim.tbl_contains(valid_layout, m.options.position.layout) then
+		table.insert(m.health.errors,
+			"[error] time-bomb config at position layout : " .. m.options.position.layout)
+		utils.notify("1 error you can see more with :checkhealth time-bomb", 3)
+		m.options.position.layout = "top-right"
+	end
+
+
+	-- check si top est superieur >= 0
+	if m.options.position.margin.top < 0 then
+		table.insert(
+			m.health.errors,
+			"[error] time-bomb config at position margin top number: "
+			.. m.options.position.margin.top
+			.. " must be equal or upper to 0"
+		)
+		utils.notify("1 error you can see more with :checkhealth time-bomb", 3)
+		m.options.position.margin.top = "1"
+	end
+
+	-- check si right est superieur >= a 0
+	if m.options.position.margin.right < 0 then
+		table.insert(
+			m.health.errors,
+			"[error] time-bomb config at position margin right number: "
+			.. m.options.position.margin.right
+			.. " must be equal or upper to 0"
+		)
+		utils.notify("1 error you can see more with :checkhealth time-bomb", 3)
+		m.options.position.margin.right = "2"
+	end
+
+	-------------------------------------------TIMER COLOR----------------------------------------------------
 
 	-- chek timer_color si valide sinon mis a lime
 	if not vim.tbl_contains(valid_colors, m.options.timer_color) then

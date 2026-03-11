@@ -1,0 +1,20 @@
+-------top-right--------
+col = vim.o.columns - 2,plus chiffre haut plus popup loin du bord droit
+row = 1,plus chiffre haut plus popup loin du haut
+anchor = 'NE',
+
+-------top-left--------
+col = 2, plus chiffre haut plus popup loin du bord gauche
+row = 0,plus chiffre haut plus popup loin du haut
+anchor = 'NW',
+
+-----botom-right------
+col = vim.o.columns - 1, plus chiffre haut plus popup loin du bord droit
+row = vim.o.lines - 2, plus chiffre haut plus popup loin du bas 
+anchor = 'SE',
+
+------botom-left ------
+col = 0,plus chiffre haut plus popup loin du bord gauche
+row = vim.o.lines - 2,plus chiffre haut plus popup loin du bas
+anchor = 'SW',
+
