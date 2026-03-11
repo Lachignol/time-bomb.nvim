@@ -16,7 +16,7 @@ m.defaults = {
 	},
 	position = {
 		layout = "top-right", -- Options: bottom-right, top-left, bottom-left, top-right
-		margin = { top = 1, right = 2 }, -- Margin for the popup
+		margin = { top = 1, right = 2 }, -- Margin for the popup (must be >= 0)
 	},
 	-- default cycles but you can add yours
 	-- the time is in number of minute
