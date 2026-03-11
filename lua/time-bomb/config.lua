@@ -16,7 +16,7 @@ m.defaults = {
 	},
 	position = {
 		layout = "top-right", -- Options: bottom-right, top-left, bottom-left, top-right
-		margin = { top = 1, right = 2 }, -- Margin for the popup (must be >= 0)
+		margin = { x = 2, y = 1 }, -- Margin for the popup (must be >= 0)
 	},
 	-- default cycles but you can add yours
 	-- the time is in number of minute
@@ -90,8 +90,8 @@ local function validate_type_position(config)
 	return (
 		type(config.position.layout) == "string"
 		and type(config.position.margin) == "table"
-		and type(config.position.margin.top) == "number"
-		and type(config.position.margin.right) == "number"
+		and type(config.position.margin.y) == "number"
+		and type(config.position.margin.x) == "number"
 	)
 end
 
@@ -217,7 +217,7 @@ function m.setup(user_options)
 			"[error] time-bomb config position table have an invalid type: \n \
 			layout must be string \
 			margin must be a table \
-			and margin values 'top' and 'right' must be number"
+			and margin values 'x' and 'y' must be number"
 		)
 		utils.notify("1 error at least you can see more with :checkhealth time-bomb", 3)
 		m.options.position = m.defaults.position
@@ -232,28 +232,28 @@ function m.setup(user_options)
 	end
 
 
-	-- check si top est superieur >= 0
-	if m.options.position.margin.top < 0 then
+	-- check si y est superieur >= 0
+	if m.options.position.margin.y < 0 then
 		table.insert(
 			m.health.errors,
-			"[error] time-bomb config at position margin top number: "
-			.. m.options.position.margin.top
+			"[error] time-bomb config at position margin y number: "
+			.. m.options.position.margin.y
 			.. " must be equal or upper to 0"
 		)
 		utils.notify("1 error you can see more with :checkhealth time-bomb", 3)
-		m.options.position.margin.top = "1"
+		m.options.position.margin.y = "1"
 	end
 
-	-- check si right est superieur >= a 0
-	if m.options.position.margin.right < 0 then
+	-- check si x est superieur >= a 0
+	if m.options.position.margin.x < 0 then
 		table.insert(
 			m.health.errors,
-			"[error] time-bomb config at position margin right number: "
-			.. m.options.position.margin.right
+			"[error] time-bomb config at position margin x number: "
+			.. m.options.position.margin.x
 			.. " must be equal or upper to 0"
 		)
 		utils.notify("1 error you can see more with :checkhealth time-bomb", 3)
-		m.options.position.margin.right = "2"
+		m.options.position.margin.x = "2"
 	end
 
 	-------------------------------------------TIMER COLOR----------------------------------------------------

@@ -34,23 +34,23 @@ end
 function M.set_col_row_anchor(config_position)
 	local col, row, anchor
 	if config_position.layout == "top-right" then
-		col = vim.o.columns - tonumber(config_position.margin.right)
-		row = config_position.margin.top
+		col = vim.o.columns - tonumber(config_position.margin.x)
+		row = config_position.margin.y
 		anchor = 'NE'
 	end
 	if config_position.layout == "top-left" then
-		col = tonumber(config_position.margin.right)
-		row = config_position.margin.top
+		col = tonumber(config_position.margin.x)
+		row = config_position.margin.y
 		anchor = 'NW'
 	end
 	if config_position.layout == "bottom-right" then
-		col = vim.o.columns - tonumber(config_position.margin.right)
-		row = vim.o.lines - config_position.margin.top
+		col = vim.o.columns - tonumber(config_position.margin.x)
+		row = vim.o.lines - config_position.margin.y
 		anchor = 'SE'
 	end
 	if config_position.layout == "bottom-left" then
-		col = tonumber(config_position.margin.right)
-		row = vim.o.lines - config_position.margin.top
+		col = tonumber(config_position.margin.x)
+		row = vim.o.lines - config_position.margin.y
 		anchor = 'SW'
 	end
 	return col, row, anchor
