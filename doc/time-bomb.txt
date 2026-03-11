@@ -81,7 +81,7 @@ Available options:
 
 *position* (table) >lua
 Layout options: `"bottom-right"`, `"bottom-left"`, `"top-left"`, `"top-right"`
-Margin-values (x and y): must be equal or upper to 0
+Margin-values (x and y): must be equal or upper to 0 and is relative to the chosen layout corner (x: horizontal, y: vertical)
 
 Default:
   position = {

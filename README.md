@@ -116,7 +116,7 @@ require("time-bomb").setup({
   },
   position = {
 	layout = "top-right",            -- Options: bottom-right, top-left, bottom-left, top-right
-	margin = { x = 2, y = 1 },       -- Margin for the popup (must be >= 0 )
+	margin = { x = 2, y = 1 },       -- Margin for the popup relative to the chosen layout corner (x: horizontal, y: vertical) (must be >= 0 )
   },
   
   pomodoro_cycles = {
