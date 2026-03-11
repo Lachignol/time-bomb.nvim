@@ -70,6 +70,14 @@ function M.create_progress_bar(timer, total_duration_of_cycle, style)
 		return M.create_dots_progress_bar(progression, timer)
 	elseif style == "music" then
 		return M.create_music_progress_bar(progression, timer)
+	elseif style == "zelda" then
+		return M.create_zelda_progress_bar(progression, timer)
+	elseif style == "gta" then
+		return M.create_gta_progress_bar(progression, timer)
+	elseif style == "casino" then
+		return M.create_casino_progress_bar(progression, timer)
+	elseif style == "zombie" then
+		return M.create_zombie_progress_bar(progression, timer)
 	end
 
 	return bar
@@ -79,9 +87,10 @@ end
 function M.create_mama_lova_progress_bar(progression, timer)
 	local width = 10
 	local to_fill = math.floor(progression * width)
+	if (progression > 0.95) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	local to_empty = width - to_fill
-	local bar = "[" .. ("❤️"):rep(to_fill) .. ("🩶"):rep(to_empty) .. "]"
+	local bar = " [" .. ("❤️"):rep(to_fill) .. ("🩶"):rep(to_empty) .. "] "
 	return bar
 end
 
@@ -89,24 +98,16 @@ end
 function M.create_cyberpunk_progress_bar(progression, timer)
 	local width = 10
 	local to_fill = math.floor(progression * width)
+	if (progression > 0.95) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	return "▌" .. string.rep("█", to_fill) .. string.rep("░", width - to_fill) .. "▐"
-end
-
--- Fonction pour cree la bar de progression fire
-function M.create_fire_progress_bar(progression, timer)
-	local width = 10
-	local to_fill = math.floor(progression * width)
-	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
-	local filled = string.rep("🟥", to_fill)
-	local empty = string.rep("⬜", width - to_fill)
-	return filled .. empty
 end
 
 -- Fonction pour cree la bar de progression dots
 function M.create_dots_progress_bar(progression, timer)
 	local width = 10
 	local to_fill = math.floor(progression * width)
+	if (progression > 0.95) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	local filled = string.rep("●", to_fill)
 	local empty = string.rep("○", width - to_fill)
@@ -117,9 +118,54 @@ end
 function M.create_music_progress_bar(progression, timer)
 	local width = 10
 	local to_fill = math.floor(progression * width)
+	if (progression > 0.95) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	local filled = string.rep("♪", to_fill)
 	local empty = string.rep("·", width - to_fill)
+	return filled .. empty
+end
+
+-- Fonction pour cree la bar de progression fire
+function M.create_fire_progress_bar(progression, timer)
+	local width = 10
+	local to_fill = math.floor(progression * width)
+	if (progression > 0.95) then to_fill = width end
+	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
+	local filled = string.rep("▰", to_fill)
+	local empty = string.rep("▱", width - to_fill)
+	return filled .. empty
+end
+
+-- Fonction pour cree la bar de progression gta
+function M.create_gta_progress_bar(progression, timer)
+	local width = 10
+	local to_fill = math.floor(progression * width)
+	if (progression > 0.95) then to_fill = width end
+	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
+	local filled = string.rep("★", to_fill)
+	local empty = string.rep("☆", width - to_fill)
+	return filled .. empty
+end
+
+-- Fonction pour cree la bar de progression zombie
+function M.create_zombie_progress_bar(progression, timer)
+	local width = 10
+	local to_fill = math.floor(progression * width)
+	if (progression > 0.95) then to_fill = width end
+	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
+	local filled = string.rep(" ☢", to_fill)
+	local empty = string.rep(" ○", width - to_fill)
+	return filled .. empty
+end
+
+-- Fonction pour cree la bar de progression casino
+function M.create_casino_progress_bar(progression, timer)
+	local width = 10
+	local to_fill = math.floor(progression * width)
+	if (progression > 0.95) then to_fill = width end
+	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
+	local filled = string.rep("♠", to_fill)
+	local empty = string.rep("♤", width - to_fill)
 	return filled .. empty
 end
 
@@ -127,15 +173,21 @@ end
 function M.set_width(style)
 	local width = 11
 	if (style == "mama-lova") then
-		width = 22
+		width = 24
 	elseif (style == "cyberpunk") then
 		width = 12
 	elseif (style == "fire") then
-		width = 20
+		width = 11
 	elseif (style == "dots") then
 		width = 11
 	elseif (style == "music") then
 		width = 11
+	elseif (style == "gta") then
+		width = 11
+	elseif (style == "casino") then
+		width = 11
+	elseif (style == "zombie") then
+		width = 22
 	end
 	return width
 end
@@ -152,6 +204,12 @@ function M.set_height(style)
 	elseif (style == "dots") then
 		height = 2
 	elseif (style == "music") then
+		height = 2
+	elseif (style == "gta") then
+		height = 2
+	elseif (style == "casino") then
+		height = 2
+	elseif (style == "zombie") then
 		height = 2
 	end
 	return height

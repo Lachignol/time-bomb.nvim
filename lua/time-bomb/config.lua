@@ -36,7 +36,7 @@ m.defaults = {
 }
 
 -- style valide
-local valid_style = { "mama-lova", "normal", "cyberpunk", "fire", "dots", "music" }
+local valid_style = { "mama-lova", "normal", "cyberpunk", "fire", "dots", "music", "gta", "casino", "zombie" }
 
 -- couleurs valide
 local valid_colors = { "lime", "blue", "black", "gray", "silver", "white", "fuchsia" }

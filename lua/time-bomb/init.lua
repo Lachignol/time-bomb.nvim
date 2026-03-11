@@ -255,9 +255,11 @@ end
 function M.update_window_position(win)
 	if not vim.api.nvim_win_is_valid(win) then return end
 	local current_config = vim.api.nvim_win_get_config(win)
+	local col, row, anchor = utils.set_col_row_anchor(config.options.position)
 	local new_opts = vim.tbl_extend("force", current_config, {
-		col = vim.o.columns - 2,
-		row = 1,
+		col = col,
+		row = row,
+		anchor = anchor
 	})
 	vim.api.nvim_win_set_config(win, new_opts)
 end

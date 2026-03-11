@@ -138,11 +138,14 @@ require("time-bomb").setup({
 | Style | Aperçu (50%) | Width | Height | Description |
 |-------|--------------|-------|--------|-------------|
 | `normal` | `  12min30s` | 11 | 1 | Simple timer |
-| `mama-lova` | `[❤️❤️❤️🩶🩶🩶🩶🩶🩶🩶]` | 22 | 2 | Hearts  ❤️🩶 |
-| `cyberpunk` | `▐███░░░░░░░▌` | 20 | 2 | Futuristic neon |
-| `fire` | `🟥🟥🟥🟥🟥⬜⬜⬜⬜⬜` | 20 | 1 | Gradient fire |
-| `dots` | `●●●●●○○○○○` | 20 | 1 | Elegant dots |
-| `music` | `♪♪♪♪♪.....` | 20 | 1 | Musical notes |
+| `mama-lova` | `[ ❤️❤️❤️🩶🩶🩶🩶🩶 ]` | 24 | 2 | Hearts  ❤️🩶 |
+| `cyberpunk` | `▐███░░░░░░░▌` | 12 | 2 | Futuristic neon |
+| `fire` | `▰▰▰▰▰▱▱▱▱▱` | 11 | 1 | Gradient fire |
+| `dots` | `●●●●●○○○○○` | 11 | 1 | Elegant dots |
+| `music` | `♪♪♪♪♪.....` | 11 | 2 | Musical notes |
+| `gta` | `★★★★★☆☆☆☆☆` | 11 | 2 | GTA stars |
+| `casino` | `♠♠♠♠♠♤♤♤♤♤` | 11 | 2 | Casino suits |
+| `zombie` | ` ☢ ☢ ☢ ☢ ☢ ○ ○ ○ ○ ○` | 22 | 2 | Zombie radiation |
 
 ### **Cycle configuration :**
 
@@ -158,7 +161,7 @@ pomodorro_cycles = {
 ### **Available styles :**
 
 ```
-"normal", "mama-lova", "cyberpunk", "fire", "dots", "music"
+"normal", "mama-lova", "cyberpunk", "fire", "dots", "music", "gta", "casino", "zombie"
 ```
 
 ## 🚀 Usage
