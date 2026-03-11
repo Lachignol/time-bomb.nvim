@@ -26,14 +26,14 @@
 - ⌨️ **Configurable keymaps** (`<leader>tb*`)
 - 🩺 **Health check** (`:checkhealth time-bomb`)
 
-## 📷 Screenshots
-
 
 <div align="center">
+	
+##  Demo
 
 [demo-time-bomb.webm](https://github.com/user-attachments/assets/8c3a8fd2-2c55-49ed-a6f3-ee9d04a80290)
 
-
+## 📷 Screenshots
 
 | ![Style "mama-lova"](https://github.com/user-attachments/assets/a052ee0a-c979-42de-b837-0d43e42bbcd1) | ![Style "normal"](https://github.com/user-attachments/assets/8a28cc21-acd9-422d-9398-bc95d169c872) |
 |:--:|:--:|
