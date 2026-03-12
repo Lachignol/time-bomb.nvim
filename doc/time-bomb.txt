@@ -179,8 +179,8 @@ Customizable via `config.keymaps`.
 
 6. PROGRESS BAR STYLES				|time-bomb-styles|
 
-normal    12:30                W:11 H:1    Simple timer     ~
-mama-lova [ ❤️❤️❤️🩶🩶🩶🩶🩶 ] W:24 H:2    Heart animation  ~
+normal    12:30      			 W:11 H:1    Simple timer     ~
+mama-lova [ ❤️❤️❤️🩶🩶🩶🩶🩶 ]  W:22 H:2    Heart animation  ~
 cyberpunk ▐███░░░░░░░▌           W:12 H:2    Neon futurist    ~
 fire      ▰▰▰▰▰▱▱▱▱▱             W:11 H:1    Fire gradient    ~
 dots      ●●●●●○○○○○             W:11 H:1    Elegant dots     ~
