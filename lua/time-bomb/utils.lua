@@ -90,7 +90,7 @@ function M.create_mama_lova_progress_bar(progression, timer)
 	if (progression > 0.98) then to_fill = width end
 	if ((to_fill == 0) and not (timer == 0)) then to_fill = to_fill + 1 end
 	local to_empty = width - to_fill
-	local bar = " [" .. ("❤️"):rep(to_fill) .. ("🩶"):rep(to_empty) .. "] "
+	local bar = "[" .. ("❤️"):rep(to_fill) .. ("🩶"):rep(to_empty) .. "]"
 	return bar
 end
 
@@ -173,7 +173,7 @@ end
 function M.set_width(style)
 	local width = 11
 	if (style == "mama-lova") then
-		width = 24
+		width = 22
 	elseif (style == "cyberpunk") then
 		width = 12
 	elseif (style == "fire") then

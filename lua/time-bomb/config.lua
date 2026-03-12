@@ -22,11 +22,11 @@ m.defaults = {
 	-- the time is in number of minute
 	-- you have only 6 style for the moment
 	pomodoro_cycles = {
-		{ title = "Work",        time = "25", style = "mama-lova" },
-		{ title = "Short-Break", time = "5",  style = "cyberpunk" },
-		{ title = "Work",        time = "25", style = "fire" },
-		{ title = "Short-Break", time = "5",  style = "dots" },
-		{ title = "Work",        time = "25", style = "music" },
+		{ title = "Work",        time = "25", style = "normal" },
+		{ title = "Short-Break", time = "5",  style = "normal" },
+		{ title = "Work",        time = "25", style = "normal" },
+		{ title = "Short-Break", time = "5",  style = "normal" },
+		{ title = "Work",        time = "25", style = "normal" },
 		{ title = "Long-Break",  time = "15", style = "normal" },
 	},
 	-- default color for timer

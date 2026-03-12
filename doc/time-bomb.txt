@@ -96,11 +96,11 @@ Default:
 >lua
   {
     { title = "Work", time = "25", style = "normal" },
-    { title = "Short-Break", time = "5", style = "mama-lova" },
-    { title = "Work", time = "25", style = "cyberpunk" },
-    { title = "Short-Break", time = "5", style = "fire" },
-    { title = "Work", time = "25", style = "dots" },
-    { title = "Long-Break", time = "15", style = "music" }
+    { title = "Short-Break", time = "5", style = "normal" },
+    { title = "Work", time = "25", style = "normal" },
+    { title = "Short-Break", time = "5", style = "normal" },
+    { title = "Work", time = "25", style = "normal" },
+    { title = "Long-Break", time = "15", style = "normal" }
   }
 <
   *Valid-styles*: `"normal"`, `"mama-lova"`, `"cyberpunk"`, `"fire"`, `"dots"`, `"music"`, `"gta"`, `"casino"`, `"zombie"`
