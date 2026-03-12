@@ -138,7 +138,7 @@ require("time-bomb").setup({
 | Style | Aperçu (50%) | Width | Height | Description |
 |-------|--------------|-------|--------|-------------|
 | `normal` | `  12min30s` | 11 | 1 | Simple timer |
-| `mama-lova` | `[ ❤️❤️❤️🩶🩶🩶🩶🩶 ]` | 24 | 2 | Hearts  ❤️🩶 |
+| `mama-lova` | `[❤️❤️❤️🩶🩶🩶🩶🩶]` | 22 | 2 | Hearts  ❤️🩶 |
 | `cyberpunk` | `▐███░░░░░░░▌` | 12 | 2 | Futuristic neon |
 | `fire` | `▰▰▰▰▰▱▱▱▱▱` | 11 | 1 | Gradient fire |
 | `dots` | `●●●●●○○○○○` | 11 | 1 | Elegant dots |
